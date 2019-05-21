@@ -1,5 +1,30 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+  header
+    h1 NEW ADVERT
+  div(class="container")
+    form(id="advert-form", class="advert-form", method="post", action="http://localhost/api/adverts", target="dummyframe")
+      label(for="advert-ID") ID:
+        input(type="text", placeholder=" Write ID here...", id="advert-ID", name="ID", required)
+
+      label(for="advert-name") Name:
+        input(type="text", placeholder=" Write name here...", id="advert-name", name="name", required)
+
+      label(for="advert-location") Location:
+        input(type="text", placeholder=" latitude, longitude", id="advert-location", name="location", required)
+
+      label(for="advert-content") Content:
+        textarea(placeholder="Lorem ipsum...", id="advert-content", class="a-content", name="campaignContent", required)
+
+      label(for="advert-duration", class="expiring") Expiring:
+        input(id="advert-duration", type="date", name="campaignDuration", required)
+
+      div(class="control-buttons")
+        button(type="submit", class="create button", id="create")
+          span(class="button-text") Create
+        button(type="reset", class="reset button")
+          span(class="button-text") Reset
+    iframe(name="dummyframe", id="dummyframe")
+  script(src="../javascripts/newAdvert.js")

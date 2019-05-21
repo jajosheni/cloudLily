@@ -1,8 +1,105 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  font-size: 14px;
+  background-color: #fff;
+  height: 100%;
+  min-width: 350px;
+  max-width: 600px;
+  font-family: "Century Gothic", serif;
 }
 
-a {
-  color: #00B7FF;
+header{
+  position: relative;
+  text-align: center;
+  margin: 10px 10px 30px;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 2px solid #000;
+  box-shadow: 5px 5px 0 #000;
+}
+
+h1{
+  display: block;
+  margin: 0 auto;
+  color: #000;
+  font-family: Consolas, serif;
+  font-weight: lighter;
+  font-size: 1.7em;
+}
+
+
+.container{
+  padding: 20px;
+  margin: 0 20px;
+  box-sizing: border-box;
+  background-color: #e3e1e1;
+  border: 1px solid #000;
+  box-shadow: 5px 5px 0 #000;
+}
+
+label{
+  font-size: 1.2em;
+  font-family: Consolas, serif;
+  display:block;
+}
+
+input{
+  display: block;
+  width: 65%;
+  height: 25px;
+  font-size: 0.9em;
+  position: relative;
+  top: -22px;
+  left: 100px;
+}
+
+.a-content{
+  display: block;
+  width: 65%;
+  height: 100px;
+  margin: 10px 0;
+  position: relative;
+  top: -30px;
+  left: 100px;
+}
+
+
+.button{
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+  margin: 15px;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.5em;
+  border: 2px solid black;
+  box-shadow: 5px 5px 0 #000;
+  padding: 0 10px;
+}
+
+.button:hover{
+  background-color: #242524;
+  color: white;
+  position: relative;
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 1px #5d5d5d;
+  transition: 0.2s ease-in;
+}
+
+.control-buttons{
+  text-align: center;
+}
+
+#dummyframe{
+  display: none;
+  position:relative;
+  left: 50%;
+  top: 5px;
+  transform: translate(-50%);
+  text-align: center;
+  width: 56px;
+  height: 37px;
+  background: white;
 }
