@@ -15,8 +15,8 @@ module.exports = {
 
     //check if user and password exist
     login_user: async function(req, res, next){
-        let user = req.body.user;
-        let password = req.body.password;
+        let user = req.query.user;
+        let password = req.query.password;
 
         User.find({user: user, password: password}, function (err, usr) {
             if (err) console.log(err);
@@ -47,12 +47,13 @@ module.exports = {
             if(!usr.length){
                 // save the user
                 newUser.save(function(err) {
-                    if (err) console.log(err);
-                    res.json(usr);
-                    console.log('User created!');
+                    if (err)
+                        res.send('false');
+                    else
+                        res.send('true');
                 });
             }else{
-                res.send('Exists!');
+                res.send('false');
             }
         });
     },
