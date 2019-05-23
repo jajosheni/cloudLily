@@ -20,6 +20,8 @@ const advertSchema = new Schema({
     campaignDuration: { type: Date, default: Date.now() },
 });
 
+advertSchema.indexes( { location: "2dsphere" } );
+
 // Compile model from schema
 const Advert = mongoose.model('Advert', advertSchema );
 
