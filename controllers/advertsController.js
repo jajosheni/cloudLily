@@ -102,5 +102,20 @@ module.exports = {
             }else
                 res.send('Saved');
         });
+    },
+
+    //get a single advert by id
+    get_advert: async function (req, res, next) {
+        res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+        res.header("Pragma", "no-cache");
+        res.header("Expires", 0);
+
+        let advertID = req.params.id;
+
+        let advert = await Advert.findOne({_id: advertID}, function (err, adv){
+            if (err) console.log(err);
+            return adv;
+        });
+        res.send(advert)
     }
 };

@@ -20,7 +20,7 @@ const advertSchema = new Schema({
     campaignDuration: { type: Date, default: Date.now() },
 });
 
-advertSchema.indexes( { location: "2dsphere" } );
+advertSchema.index( { location: "2dsphere" } ); //Change to .index in Linux
 
 // Compile model from schema
 const Advert = mongoose.model('Advert', advertSchema );
