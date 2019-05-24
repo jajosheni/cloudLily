@@ -32,8 +32,15 @@ module.exports = {
 
         let coordinates = [0,0];
         let temp = req.query.userLocation.replace(' ', '').split(',');
-        coordinates[0] = parseFloat(temp[0]);
-        coordinates[1] = parseFloat(temp[1]);
+        try{
+            coordinates[0] = parseFloat(temp[0]);
+            coordinates[1] = parseFloat(temp[1]);
+        }catch (e) {
+            coordinates[0] = 40.0;
+            coordinates[1] = 20.0;
+            radius = 1000000000;
+        }
+
 
         let location = {
             "type" : "Point",
