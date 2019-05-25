@@ -18,6 +18,7 @@ const advertSchema = new Schema({
     },
     campaignContent: String,
     campaignDuration: { type: Date, default: Date.now() },
+    category: String,
 });
 
 advertSchema.index( { location: "2dsphere" } ); //Change to .index in Linux

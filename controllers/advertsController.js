@@ -54,6 +54,7 @@ module.exports = {
                     {
                         $or: [
                             {"campaignContent" : {$regex : `.*${searchQuery}.*`, $options: "i" }},
+                            {"category" : {$regex : `.*${searchQuery}.*`, $options: "i" }},
                             {"name" : {$regex : `.*${searchQuery}.*`, $options: "i" }},
                         ]
                     },
@@ -100,7 +101,8 @@ module.exports = {
             name: req.body.name,
             location: location,
             campaignContent: req.body.campaignContent,
-            campaignDuration: req.body.campaignDuration
+            campaignDuration: req.body.campaignDuration,
+            category: req.body.category
         });
 
         newAdvert.save(function(err) {
