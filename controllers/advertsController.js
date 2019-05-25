@@ -32,20 +32,15 @@ module.exports = {
 
         let coordinates = [0,0];
         let temp = req.query.userLocation.replace(' ', '').split(',');
-        try{
-            coordinates[0] = parseFloat(temp[0]);
-            coordinates[1] = parseFloat(temp[1]);
-        }catch (e) {
-            coordinates[0] = parseFloat("40.0");
-            coordinates[1] = parseFloat("20.0");
-            radius = 1000000000;
-        }
 
-        if(typeof(coordinates[0]) != "number"  || typeof(coordinates[1]) != "number")
-        {
-            coordinates[0] = parseFloat("40.0");
-            coordinates[1] = parseFloat("20.0");
+        coordinates[0] = parseFloat(temp[0]);
+        coordinates[1] = parseFloat(temp[1]);
+
+        if(isNaN(coordinates[0]) || isNaN(coordinates[1])) {
+            coordinates[0] = parseFloat("40.9223");
+            coordinates[1] = parseFloat("29.8217");
             radius = 1000000000;
+            console.log("Default");
         }
 
         let location = {
