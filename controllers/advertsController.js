@@ -36,11 +36,17 @@ module.exports = {
             coordinates[0] = parseFloat(temp[0]);
             coordinates[1] = parseFloat(temp[1]);
         }catch (e) {
-            coordinates[0] = 40.0;
-            coordinates[1] = 20.0;
+            coordinates[0] = parseFloat("40.0");
+            coordinates[1] = parseFloat("20.0");
             radius = 1000000000;
         }
 
+        if(typeof(coordinates[0]) != "number"  || typeof(coordinates[1]) != "number")
+        {
+            coordinates[0] = parseFloat("40.0");
+            coordinates[1] = parseFloat("20.0");
+            radius = 1000000000;
+        }
 
         let location = {
             "type" : "Point",
