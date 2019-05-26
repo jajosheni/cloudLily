@@ -105,12 +105,22 @@ module.exports = {
             category: req.body.category
         });
 
-        newAdvert.save(function(err) {
-            if (err) {
-                console.log(err);
-                res.send('Fail')
-            }else
-                res.send('Saved');
+        Advert.find({ID: req.body.ID}, function (err, adv) {
+            if (err) res.send('false');
+
+            //check if advert exists
+            if(!adv.length){
+                // save the advert
+                newAdvert.save(function(err) {
+                    if (err) {
+                        console.log(err);
+                        res.send('Fail')
+                    }else
+                        res.send('Saved');
+                });
+            }else{
+                res.send('SameID');
+            }
         });
     },
 
