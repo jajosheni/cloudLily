@@ -10,6 +10,9 @@ const apiUsersRouter = require('./routes/api/users');
 
 const app = express();
 
+const expressip = require('express-ip');
+app.use(expressip().getIpInfoMiddleware);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -45,7 +48,9 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  const ipInfo = req.ipInfo;
+  let message = `Hey, are you lost? ${ipInfo.city}, ${ipInfo.country} \n I'm saving your ip anyway ${req.ip}`;
+  res.send(message);
 });
 
 module.exports = app;
