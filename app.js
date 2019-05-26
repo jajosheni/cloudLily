@@ -49,7 +49,8 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   const ipInfo = req.ipInfo;
-  let message = `Hey, are you lost? ${ipInfo.city}, ${ipInfo.country} \n I'm saving your ip anyway ${req.ip}`;
+  let message = `Hey, are you lost? ${ipInfo.city}, ${ipInfo.country} ; I'm saving your ip anyway ${req.ip}`;
+  console.log("Requesting 404 pages: "+ req.ip);
   res.send(message);
 });
 
